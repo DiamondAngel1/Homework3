@@ -38,6 +38,24 @@ bool DeleteOption(char c, const char* removeChars) {
     return false;
 }
 
+void Delete(char*& user, int& length, const char* removeChars) {
+    char* temp = new char[length + 1];
+    int j = 0;
+    for (int i = 0; i < length; i++) {
+        if (!DeleteOption(user[i], removeChars)) {
+            temp[j++] = user[i];
+        }
+    }
+    temp[j] = '\0';
+    delete[] user;
+    user = new char[j + 1];
+    for (int i = 0; i <= j; ++i) {
+        user[i] = temp[i];
+    }
+    length = j;
+    delete[] temp;
+}
+
 int main() {
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
@@ -49,6 +67,8 @@ int main() {
     char* removeChars = nullptr;
     int removeLength = 0;
     CharsDel(removeChars, removeLength);
+
+    Delete(user, userLength, removeChars);
 
     return 0;
 }
