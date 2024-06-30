@@ -76,5 +76,8 @@ int main() {
 
     Print(user);
 
+    delete[] user;
+    delete[] removeChars;
+
     return 0;
 }
