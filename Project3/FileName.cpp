@@ -16,6 +16,18 @@ void UserInput(char*& user, int& length) {
     user[length] = '\0';
 }
 
+void CharsDel(char*& remove, int& length) {
+    cout << "Введіть символи, які потрібно видалити: ";
+    char temp[100];
+    cin.getline(temp, 100);
+    length = strlen(temp);
+    remove = new char[length + 1];
+    for (int i = 0; i < length; ++i) {
+        remove[i] = temp[i];
+    }
+    remove[length] = '\0';
+}
+
 int main() {
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
@@ -23,6 +35,10 @@ int main() {
     char* user = nullptr;
     int userLength = 0;
     UserInput(user, userLength);
+
+    char* removeChars = nullptr;
+    int removeLength = 0;
+    CharsDel(removeChars, removeLength);
 
     return 0;
 }
