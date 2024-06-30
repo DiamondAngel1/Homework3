@@ -56,6 +56,10 @@ void Delete(char*& user, int& length, const char* removeChars) {
     delete[] temp;
 }
 
+void Print(const char* user) {
+    cout << "Результат: " << user << endl;
+}
+
 int main() {
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
@@ -69,6 +73,8 @@ int main() {
     CharsDel(removeChars, removeLength);
 
     Delete(user, userLength, removeChars);
+
+    Print(user);
 
     return 0;
 }
