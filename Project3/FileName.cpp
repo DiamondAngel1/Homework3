@@ -28,6 +28,16 @@ void CharsDel(char*& remove, int& length) {
     remove[length] = '\0';
 }
 
+bool DeleteOption(char c, const char* removeChars) {
+    while (*removeChars) {
+        if (c == *removeChars) {
+            return true;
+        }
+        removeChars++;
+    }
+    return false;
+}
+
 int main() {
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
